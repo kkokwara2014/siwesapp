@@ -15,6 +15,10 @@ class CreateItcompaniesTable extends Migration
     {
         Schema::create('itcompanies', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
+            $table->string('name');
+            $table->string('address');
+            $table->string('phone');
             $table->timestamps();
         });
     }
