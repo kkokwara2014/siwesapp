@@ -229,7 +229,7 @@
               <div class="icon mb-3"><span class="flaticon-maintenance"></span></div>
               <div class="media-body">
                 <h3 class="heading">Online SIWES Supervision</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <p>Providing ease of monitoring and supervising IT students across the Nation.</p>
               </div>
             </div>      
           </div>
@@ -237,8 +237,8 @@
             <div class="media block-6 services p-3 py-4 d-block text-center">
               <div class="icon mb-3"><span class="flaticon-construction"></span></div>
               <div class="media-body">
-                <h3 class="heading">Pre-Construction Services</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <h3 class="heading">Supervisor Allocation</h3>
+                <p>Allocating Supervisors seamlessly.</p>
               </div>
             </div>      
           </div>
@@ -246,8 +246,8 @@
             <div class="media block-6 services p-3 py-4 d-block text-center">
               <div class="icon mb-3"><span class="flaticon-conveyor"></span></div>
               <div class="media-body">
-                <h3 class="heading">Construction Services</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <h3 class="heading">Interfacing with Industries</h3>
+                <p>SIWES makes it easier for students to interface with industries.</p>
               </div>
             </div>    
           </div>
@@ -256,8 +256,8 @@
             <div class="media block-6 services p-3 py-4 d-block text-center">
               <div class="icon mb-3"><span class="flaticon-engineer"></span></div>
               <div class="media-body">
-                <h3 class="heading">General Constructing</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                <h3 class="heading">General Industrial Exposure</h3>
+                <p>Through this exercise, students get exposed to the current developments in the Industries.</p>
               </div>
             </div>      
           </div>
@@ -265,7 +265,7 @@
       </div>
     </section>
 
-    <section class="ftco-section bg-light">
+    {{-- <section class="ftco-section bg-light">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5 ftco-animate">
           <div class="col-md-7 text-center heading-section">
@@ -300,10 +300,10 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
     
 
-    <section class="ftco-section cover_1" style="background-image: url({{asset('bootstrap_assets/images/bg_3.jpg')}});" data-stellar-background-ratio="0.5">
+    {{-- <section class="ftco-section cover_1" style="background-image: url({{asset('bootstrap_assets/images/bg_3.jpg')}});" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row text-center justify-content-center">
@@ -314,9 +314,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
 
-    <section class="ftco-section testimony-section">
+    {{-- <section class="ftco-section testimony-section">
       <div class="container-fluid">
         <div class="row justify-content-center mb-5 pb-5">
           <div class="col-md-7 text-center heading-section ftco-animate">
@@ -378,9 +378,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
 
-  <section class="ftco-section bg-light">
+  {{-- <section class="ftco-section bg-light">
     <div class="container">
       <div class="row justify-content-center mb-5 pb-5">
         <div class="col-md-7 text-center heading-section ftco-animate">
@@ -420,9 +420,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
 
-  <section class="ftco-section">
+  {{-- <section class="ftco-section">
     <div class="container">
       <div class="row justify-content-center mb-5 pb-5">
         <div class="col-md-7 text-center heading-section ftco-animate">
@@ -519,15 +519,15 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
   
   <footer class="ftco-footer ftco-bg-dark ftco-section">
     <div class="container">
       <div class="row mb-5">
         <div class="col-md">
           <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">Vertex</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <h2 class="ftco-heading-2">SIWESupervision</h2>
+            <p>Providing online supervision platform for both students and Supervisors.</p>
           </div>
         </div>
         <div class="col-md">
