@@ -444,6 +444,7 @@ class ComposerStaticInita34766bd4e05ebbc3995ee087fabeb57
         'App\\Report' => __DIR__ . '/../..' . '/app/Report.php',
         'App\\Role' => __DIR__ . '/../..' . '/app/Role.php',
         'App\\Sentto' => __DIR__ . '/../..' . '/app/Sentto.php',
+        'App\\Supervision' => __DIR__ . '/../..' . '/app/Supervision.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',

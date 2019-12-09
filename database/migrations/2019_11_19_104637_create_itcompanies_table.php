@@ -17,7 +17,7 @@ class CreateItcompaniesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->string('name');
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->integer('location_id');
             $table->timestamps();
