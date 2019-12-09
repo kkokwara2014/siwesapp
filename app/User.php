@@ -66,6 +66,6 @@ class User extends Authenticatable
     }
 
     public function assignedto(){
-        return $this->belongsTo(Assignedto::class);
+        return $this->hasMany(Assignedto::class);
     }
 }
