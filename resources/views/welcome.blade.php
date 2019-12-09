@@ -144,6 +144,8 @@
             {{-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> --}}
             <li class="nav-item"><a href="#" class="nav-link">About</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+            <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
           </ul>
         </div>
       </div>

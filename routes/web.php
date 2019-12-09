@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'FrontController@index')->name('index');
 Route::get('/about', 'FrontController@about')->name('about');
@@ -58,10 +58,10 @@ if ($timeIt > date('Y-m-d')) {
     Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::get('/', 'AdminController@index')->name('dashboard.index');
         Route::resource('student', 'StudentController');
-        Route::resource('lecturer', 'LecturerController');
-        Route::resource('course', 'CourseController');
+        Route::resource('supervisor', 'SupervisorController');
+        
         Route::resource('department', 'DepartmentController');
-        Route::resource('coursereg', 'CourseregController');
+       
 
         Route::get('user/profile', 'UserController@profileimage')->name('user.profile');
         Route::post('user/profile', 'UserController@updateprofileimage')->name('user.profile.update');

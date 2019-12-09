@@ -18,7 +18,8 @@ class CreateItcompaniesTable extends Migration
             $table->integer('user_id');
             $table->string('name');
             $table->string('address');
-            $table->string('phone');
+            $table->string('phone')->nullable();
+            $table->integer('location_id');
             $table->timestamps();
         });
     }
