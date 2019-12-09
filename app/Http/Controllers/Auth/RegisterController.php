@@ -75,9 +75,9 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        // $departments=Department::orderBy('name','asc')->get();
-        // ,compact('departments'
-        return view('auth.register');
+        $departments=Department::orderBy('name','asc')->get();
+        
+        return view('auth.register',compact('departments'));
     }
 
     public function register(Request $request)

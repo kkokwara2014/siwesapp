@@ -11,4 +11,7 @@ class Supervision extends Model
     public function supervisor(){
         return $this->belongsTo(User::class);
     }
+    public function student(){
+        return $this->belongsTo(User::class);
+    }
 }
