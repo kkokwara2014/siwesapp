@@ -31,17 +31,22 @@
       {{-- <li><a href="{{route('comment.index')}}"><i class="fa fa-comment-o"></i> Comments</a></li> --}}
 
       {{-- only for the Admin --}}
-      @if (Auth::user()->role->id==1)
+      {{-- @if (Auth::user()->role->id==1) --}}
       <li><a href="{{route('department.index')}}"><i class="fa fa-university"></i> Department</a></li>
       {{-- <li><a href="{{route('classlevel.index')}}"><i class="fa fa-th"></i> Class Level</a></li> --}}
-      <li><a href="{{route('course.index')}}"><i class="fa fa-file-text-o"></i> Courses</a></li>
-      @endif
+      {{-- <li><a href="{{route('course.index')}}"><i class="fa fa-file-text-o"></i> Courses</a></li> --}}
+      {{-- @endif --}}
 
-      @if (Auth::user()->role->id==1||Auth::user()->role->id==3)
+      <li><a href="{{route('itcompany.index')}}"><i class="fa fa-building-o"></i> IT Company</a></li>
+      <li><a href="{{route('logbook.index')}}"><i class="fa fa-book"></i> IT Logbook</a></li>
+      <li><a href="{{route('report.index')}}"><i class="fa fa-file-pdf-o"></i> IT Report</a></li>
+      <li><a href="{{route('bankaccount.index')}}"><i class="fa fa-money"></i> Bank Account</a></li>
+
+      {{-- @if (Auth::user()->role->id==1||Auth::user()->role->id==3) --}}
 
       <li><a href="{{route('student.index')}}"><i class="fa fa-users"></i> Students</a></li>
 
-      @endif
+      {{-- @endif --}}
 
       {{-- Only Admin and Project Coordinator --}}
       {{-- @if (Auth::user()->role->id==1||Auth::user()->role->id==2) --}}
@@ -51,10 +56,10 @@
 
 
 
-      {{-- Only Admin and Lecturer --}}
-      @if (Auth::user()->role->id==1||Auth::user()->role->id==2)
-      <li><a href="{{route('lecturer.index')}}"><i class="fa fa-graduation-cap"></i> Lecturers</a></li>
-      @endif
+      {{-- Only Admin and Supervisor --}}
+      {{-- @if (Auth::user()->role->id==1||Auth::user()->role->id==2) --}}
+      <li><a href="{{route('supervisor.index')}}"><i class="fa fa-user"></i> Supervisor</a></li>
+      {{-- @endif --}}
 
 
       {{-- Only for Admin --}}
