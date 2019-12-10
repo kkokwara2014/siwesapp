@@ -32,10 +32,9 @@
                             <tbody>
                                 @foreach ($placements as $placement)
                                 <tr>
-                                    <td>{{$placement->name}}</td>
-                                    <td>{{$placement->address}}</td>
-                                    <td>{{$placement->phone}}</td>
-                                    <td>{{$placement->location->name}}</td>
+                                    <td>{{$placement->itcompany->name}}</td>
+                                    <td>{{$placement->user->lastname.' '.$placement->user->firstname}}</td>
+
 
                                     <td><a href="{{ route('placement.edit',$placement->id) }}"><span
                                                 class="fa fa-edit fa-2x text-primary"></span></a></td>
@@ -61,11 +60,8 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Address</th>
-
-                                    <th>Phone</th>
-                                    <th>Location</th>
+                                    <th>Company Name</th>
+                                    <th>Student</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -83,7 +79,7 @@
         <div class="modal fade" id="modal-default-assign">
             <div class="modal-dialog">
 
-                <form action="#" method="post">
+            <form action="{{route('placement.store')}}" method="post">
                     {{ csrf_field() }}
                     <div class="modal-content">
                         <div class="modal-header">
@@ -107,14 +103,10 @@
                                 </select>
                             </div>
 
-
-
                             <div class="form-group">
                                 <label> Registered Students <b style="color: red;">*</b> </label>
-
                                 <select class="form-control select2" multiple="multiple"
                                     data-placeholder="Select Students" style="width: 100%;" name="user_id[]">
-
                                     @foreach ($students as $user)
                                     <option value="{{$user->id}}">
                                         {{$user->lastname.' '.$user->firstname.' - '.$user->regnumber}}

@@ -68,4 +68,8 @@ class User extends Authenticatable
     public function assignedto(){
         return $this->hasMany(Assignedto::class);
     }
+
+    public function sentto(){
+        return $this->hasMany(Sentto::class);
+    }
 }

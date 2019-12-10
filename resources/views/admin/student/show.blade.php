@@ -77,7 +77,8 @@
                                     <ul class="list-group">
                                         @forelse ($senttos as $sentto)
                                         <li class="list-group-item">
-                                        {{$sentto->itcompany->name.' - '.$sentto->itcompany->address}} <span class="pull-right">{{$regcourse->course->semester->name.', '.$regcourse->course->acadsession}}</span>
+                                                {{-- <span class="pull-right">{{$regcourse->course->semester->name.', '.$regcourse->course->acadsession}}</span> --}}
+                                        {{$sentto->itcompany->name.' - '.$sentto->itcompany->address}} 
                                         </li>
                                         @empty
                                         <p style="background-color: crimson;" class="badge badge-info"><strong>No
