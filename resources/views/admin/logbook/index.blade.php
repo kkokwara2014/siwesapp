@@ -7,7 +7,7 @@
 <!-- Main row -->
 <div class="row">
     <!-- Left col -->
-    <section class="col-lg-11 connectedSortable">
+    <section class="col-lg-10 connectedSortable">
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default">
             <span class="fa fa-plus"></span> Add IT Logbook
         </button>
@@ -22,8 +22,8 @@
                         <table id="example1" class="table table-bordered table-striped table-responsive">
                             <thead>
                                 <tr>
-                                        <th>Name</th>
-                                        <th>Filename</th>
+                                        <th>Title</th>
+                                        <th>File location</th>
                                         <th>Submitted By</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
@@ -33,10 +33,10 @@
                             <tbody>
                                 @foreach ($itlogbooks as $logbook)
                                 <tr>
-                                    <td>{{$logbook->name}}</td>
-                                    <td>{{$logbook->address}}</td>
-                                    <td>{{$logbook->phone}}</td>
-                                    <td>{{$logbook->location->name}}</td>
+                                    <td>{{$logbook->title}}</td>
+                                    <td>{{$logbook->filename}}</td>
+                                    <td>{{$logbook->user->lastname.', '.$logbook->user->firstname}}</td>
+                                   
 
                                     <td><a href="{{ route('logbook.edit',$logbook->id) }}"><span
                                                 class="fa fa-edit fa-2x text-primary"></span></a></td>
@@ -62,8 +62,8 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Filename</th>
+                                    <th>Title</th>
+                                    <th>File location</th>
                                     <th>Submitted By</th>
                                     <th>Edit</th>
                                     <th>Delete</th>

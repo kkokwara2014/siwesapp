@@ -54,6 +54,7 @@ class LogbookController extends Controller
         //    create an instance of Logbook
         $logbook = new Logbook;
         $logbook->title = $request->title;
+        $logbook->user_id = $request->user_id;
         $logbook->filename = $filenameToStore;
 
         $logbook->save();
@@ -82,8 +83,8 @@ class LogbookController extends Controller
     public function edit($id)
     {
         
-        $itlogbooks = Logbook::where('id', $id)->first();;
-        return view('admin.itcompany.edit', array('user' => Auth::user()), compact('itlogbooks'));
+        $logbooks = Logbook::where('id', $id)->first();;
+        return view('admin.logbook.edit', array('user' => Auth::user()), compact('logbooks'));
     }
 
     /**
@@ -95,7 +96,27 @@ class LogbookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'filename' => 'required|file|max:5000|mimes:docx,doc,pdf',
+        ]);
+
+
+        if ($request->hasFile('filename')) {
+            $filenameWithTime = time() . '_' . $request->filename->getClientOriginalName();
+            $filenameToStore = $request->filename->storeAs('public/it_logbooks', $filenameWithTime);
+        }
+
+        //    create an instance of Logbook
+        $logbook = Logbook::find($id);
+        $logbook->title = $request->title;
+        $logbook->user_id = $request->user_id;
+        $logbook->filename = $filenameToStore;
+
+        $logbook->save();
+
+        
+        return redirect()->route('logbook.index');
     }
 
     /**
