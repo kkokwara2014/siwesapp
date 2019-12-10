@@ -52,7 +52,7 @@
                                         <tr>
                                             <th>Surname</th>
                                             <th>First Name</th>
-                                            <th>Identity Number</th>
+                                            <th>Reg. Number</th>
                                             <th>Email</th>
                                             <th>Phone</th>
                                             <th>View Details</th>
@@ -71,7 +71,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($students as $student)
-                                        @if ((Auth::user()->id==$student->id||Auth::user()->role->id==2||Auth::user()->role->id==1))
+                                        @if ((Auth::user()->id==$student->id||Auth::user()->role->id==2||Auth::user()->role->id==1||Auth::user()->role->id==3))
                                         <tr>
                                             <td>{{$student->lastname}}</td>
                                             <td>{{$student->firstname}}</td>

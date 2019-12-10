@@ -64,6 +64,7 @@ if ($timeIt > date('Y-m-d')) {
         Route::resource('itcompany', 'ItcompanyController');
         Route::resource('logbook', 'LogbookController');
         Route::resource('report', 'ReportController');
+        Route::resource('placement', 'PlacementController');
        
 
         Route::get('user/profile', 'UserController@profileimage')->name('user.profile');

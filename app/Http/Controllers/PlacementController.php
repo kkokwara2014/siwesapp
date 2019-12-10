@@ -2,14 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Department;
-use App\Sentto;
-use App\User;
-
-use Auth;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class PlacementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +13,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $students = User::where('role_id', '4')->orderBy('created_at', 'desc')->get();
-        $departments = Department::orderBy('name', 'asc')->get();
-
-        return view('admin.student.index', compact('user', 'students', 'departments'));
+        //
     }
 
     /**
@@ -54,14 +45,7 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        $student = User::find($id);
-
-        // $courses=Course::orderBy('title','asc')->get();
-
-        $senttos=Sentto::where('user_id',$id)->get();
-        // $senttos=User::find($id)->coursereg;
-    
-        return view('admin.student.show', array('user' => Auth::user()), compact('student','senttos'));
+        //
     }
 
     /**

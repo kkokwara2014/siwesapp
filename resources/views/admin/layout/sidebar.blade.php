@@ -60,7 +60,8 @@
       {{-- @if (Auth::user()->role->id==1||Auth::user()->role->id==2) --}}
       <li><a href="{{route('supervisor.index')}}"><i class="fa fa-user"></i> Supervisor</a></li>
       {{-- @endif --}}
-
+      
+      <li><a href="{{route('placement.index')}}"><i class="fa fa-exchange"></i> IT Placement</a></li>
 
       {{-- Only for Admin --}}
       {{-- @if (Auth::user()->role->id==1) --}}

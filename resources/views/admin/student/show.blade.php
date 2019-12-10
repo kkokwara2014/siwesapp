@@ -23,10 +23,10 @@
                 <div>
                     <a href="{{ route('student.index') }}" class="btn btn-primary btn-sm">
                         Back</a>
-                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
+                    {{-- <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
                         data-target="#modal-default-assign">
                         <span class="fa fa-exchange"></span> Register Course
-                    </button>
+                    </button> --}}
                 </div>
 
                 <br>
@@ -72,16 +72,16 @@
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h3>Registered Courses</h3>
+                                    <h3>Place of IT</h3>
                                     <hr>
                                     <ul class="list-group">
-                                        @forelse ($regcourses as $regcourse)
+                                        @forelse ($senttos as $sentto)
                                         <li class="list-group-item">
-                                        {{$regcourse->course->title.' - '.$regcourse->course->code}} <span class="pull-right">{{$regcourse->course->semester->name.', '.$regcourse->course->acadsession}}</span>
+                                        {{$sentto->itcompany->name.' - '.$sentto->itcompany->address}} <span class="pull-right">{{$regcourse->course->semester->name.', '.$regcourse->course->acadsession}}</span>
                                         </li>
                                         @empty
                                         <p style="background-color: crimson;" class="badge badge-info"><strong>No
-                                                Registered Courses yet!</strong></p>
+                                                Placement yet!</strong></p>
                                         @endforelse
                                     </ul>
                                 
@@ -100,7 +100,7 @@
 <div class="modal fade" id="modal-default-assign">
     <div class="modal-dialog">
 
-        <form action="{{ route('coursereg.store') }}" method="post">
+        <form action="#" method="post">
             {{ csrf_field() }}
             <div class="modal-content">
                 <div class="modal-header">
@@ -125,11 +125,11 @@
                         <select class="form-control select2" multiple="multiple" data-placeholder="Select Course"
                             style="width: 100%;" name="course_id[]">
 
-                            @foreach ($courses as $course)
+                            {{-- @foreach ($courses as $course)
                             <option value="{{$course->id}}">
                                 {{$course->title.' - '.$course->code.' - CRLoad ='.$course->creditload}}
                             </option>
-                            @endforeach
+                            @endforeach --}}
                         </select>
                     </div>
 
