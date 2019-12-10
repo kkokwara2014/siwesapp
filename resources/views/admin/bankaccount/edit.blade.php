@@ -30,10 +30,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Account Type <b style="color: red;">*</b></label>
-                                <select class="form-control" name="accounttype">
+                                <select class="form-control" name="accounttype" >
                                     <option selected="disabled">Select Account Type</option>
-                                    <option>Current</option>
-                                    <option>Savings</option>
+                                    <option {{old('accounttype',$bankaccounts->accounttype)=="Current"? 'selected':''}}>Current</option>
+                                    <option {{old('accounttype',$bankaccounts->accounttype)=="Savings"? 'selected':''}}>Savings</option>
                                 </select>
                             </div>
                             
