@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Itcompany;
 use App\Location;
 use Illuminate\Http\Request;
 
@@ -18,8 +19,9 @@ class ItcompanyController extends Controller
     {
         $user = Auth::user();
         $locations = Location::orderBy('name', 'asc')->get();
+        $itcompanies = Itcompany::orderBy('created_at', 'desc')->get();
 
-        return view('admin.itcompany.index', compact('user', 'locations'));
+        return view('admin.itcompany.index', compact('user', 'locations','itcompanies'));
     }
 
     /**
@@ -40,7 +42,16 @@ class ItcompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'address' => 'required',
+            'address' => 'required',
+            'location_id' => 'required',
+        ]);
+
+        Itcompany::create($request->all());
+
+        return redirect(route('itcompany.index'));
     }
 
     /**
@@ -62,7 +73,8 @@ class ItcompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $itcompanies = Itcompany::where('id', $id)->first();;
+        return view('admin.department.edit', array('user' => Auth::user()), compact('itcompanies'));
     }
 
     /**
@@ -74,7 +86,23 @@ class ItcompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'require',
+            'address' => 'required',
+            'address' => 'required',
+            'location_id' => 'required',
+        ]);
+
+        $itcompany = Itcompany::find($id);
+        $itcompany->user_id = $request->user_id;
+        $itcompany->name = $request->name;
+        $itcompany->address = $request->address;
+        $itcompany->phone = $request->phone;
+        $itcompany->location_id = $request->location_id;
+
+        $itcompany->save();
+
+        return redirect(route('itcompany.index'));
     }
 
     /**
@@ -85,6 +113,7 @@ class ItcompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $itcompanies = Itcompany::where('id', $id)->delete();
+        return redirect()->back();
     }
 }

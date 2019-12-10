@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Itcompany extends Model
 {
-    protected $fillable=['user_id','name','address','email','phone','location_id'];
+    protected $fillable=['user_id','name','address','phone','location_id'];
     
 
     public function location(){
