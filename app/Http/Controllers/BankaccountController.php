@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Bank;
+use App\Bankaccount;
 use Illuminate\Http\Request;
+
+use Auth;
 
 class BankaccountController extends Controller
 {
@@ -13,7 +17,11 @@ class BankaccountController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $banks = Bank::orderBy('name', 'asc')->get();
+        $bankaccounts = Bankaccount::orderBy('created_at', 'desc')->get();
+
+        return view('admin.bankaccount.index', compact('user', 'banks','bankaccounts'));
     }
 
     /**

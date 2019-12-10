@@ -8,8 +8,8 @@
 <div class="row">
     <!-- Left col -->
     <section class="col-lg-12 connectedSortable">
-        <a href="{{ route('logbook.index') }}" class="btn btn-success">
-            <span class="fa fa-eye"></span> All IT Logbooks
+        <a href="{{ route('report.index') }}" class="btn btn-success">
+            <span class="fa fa-eye"></span> All IT Reports
         </a>
         <br><br>
 
@@ -19,13 +19,17 @@
                 <div class="box">
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <form action="{{ route('logbook.update',$logbooks->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('report.update',$reports->id) }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             {{method_field('PUT')}}
 
                             <div class="form-group">
-                                <label for="">Ttile <b style="color: red;">*</b> </label>
-                                <input type="text" class="form-control" name="title" value="{{$logbooks->title}}">
+                                <label for="">Title <b style="color: red;">*</b> </label>
+                                <input type="text" class="form-control" name="title" value="{{$reports->title}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Case Study</label>
+                                <input type="text" class="form-control" name="casestudy" value="{{$reports->casestudy}}">
                             </div>
                             
                             <input type="file" name="filename">
@@ -33,7 +37,7 @@
                             <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                             <br>
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <a href="{{ route('logbook.index') }}" class="btn btn-default">Cancel</a>
+                            <a href="{{ route('report.index') }}" class="btn btn-default">Cancel</a>
 
                     </div>
                     </form>
