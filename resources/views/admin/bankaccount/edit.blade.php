@@ -8,8 +8,8 @@
 <div class="row">
     <!-- Left col -->
     <section class="col-lg-12 connectedSortable">
-        <a href="{{ route('itcompany.index') }}" class="btn btn-success">
-            <span class="fa fa-eye"></span> All IT Companies
+        <a href="{{ route('bankaccount.index') }}" class="btn btn-success">
+            <span class="fa fa-eye"></span> All Bank Accounts
         </a>
         <br><br>
 
@@ -19,40 +19,40 @@
                 <div class="box">
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <form action="{{ route('itcompany.update',$itcompanies->id) }}" method="post">
+                        <form action="{{ route('bankaccount.update',$bankaccounts->id) }}" method="post">
                             {{ csrf_field() }}
                             {{method_field('PUT')}}
 
                             <div class="form-group">
-                                <label for="">Name <b style="color: red;">*</b> </label>
-                                <input type="text" class="form-control" name="name" value="{{$itcompanies->name}}">
+                                <label for="">Account Number <b style="color: red;">*</b> </label>
+                                <input type="text" class="form-control" name="accountnumber"
+                                    value="{{$bankaccounts->accountnumber}}">
                             </div>
                             <div class="form-group">
-                                <label for="">Address <b style="color: red;">*</b> </label>
-                                <input type="text" class="form-control" name="address"
-                                    value="{{$itcompanies->address}}">
+                                <label for="">Account Type <b style="color: red;">*</b></label>
+                                <select class="form-control" name="accounttype">
+                                    <option selected="disabled">Select Account Type</option>
+                                    <option>Current</option>
+                                    <option>Savings</option>
+                                </select>
                             </div>
+                            
                             <div class="form-group">
-                                <label for="">Phone <b style="color: red;">*</b> </label>
-                                <input type="text" class="form-control" name="phone" value="{{$itcompanies->phone}}">
-                            </div>
-                            <div class="form-group">
-                                <label for="name">Location</label>
-                                <select name="location_id" class="form-control">
-                                    <option selected="disabled">Select Location</option>
-                                    @foreach ($locations as $location)
+                                <label for="name">Bank</label>
+                                <select name="bank_id" class="form-control">
+                                    <option selected="disabled">Select Bank</option>
+                                    @foreach ($banks as $bank)
 
-                                    <option value="{{$location->id}}"
-                                        {{$location->id==$itcompanies->location_id ? 'selected':''}}>
-                                        {{$location->name}}</option>
+                                    <option value="{{$bank->id}}" {{$bank->id==$bankaccounts->bank_id ? 'selected':''}}>
+                                        {{$bank->name}}</option>
 
                                     @endforeach
                                 </select>
                             </div>
-                            {{-- <input type="hidden" name="user_id" value="{{Auth::user()->id}}"> --}}
+                            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                             <br>
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <a href="{{ route('itcompany.index') }}" class="btn btn-default">Cancel</a>
+                            <a href="{{ route('bankaccount.index') }}" class="btn btn-default">Cancel</a>
 
                     </div>
                     </form>

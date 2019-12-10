@@ -35,7 +35,7 @@
                             <tbody>
                                 @foreach ($bankaccounts as $bankaccount)
                                 <tr>
-                                    <td>{{$bankaccount->user->lastname}}</td>
+                                    <td>{{$bankaccount->user->lastname.' '.$bankaccount->user->firstname}}</td>
                                     <td>{{$bankaccount->accountnumber}}</td>
                                     <td>{{$bankaccount->accounttype}}</td>
                                     <td>{{$bankaccount->bank->name}}</td>
@@ -92,28 +92,24 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title"><span class="fa fa-building-o"></span> Add Bank Account</h4>
+                            <h4 class="modal-title"><span class="fa fa-money"></span> Add Bank Account</h4>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="">Account Number <b style="color: red;">*</b> </label>
-                                <input type="text" class="form-control" name="accountnumber" placeholder="Account Number"
-                                    autofocus maxlength="10">
+                                <input type="text" class="form-control" name="accountnumber"
+                                    placeholder="Account Number" autofocus maxlength="10">
                             </div>
                             <div class="form-group">
-                                    <label for="">Account Type <b style="color: red;">*</b></label>
-                                    <select class="form-control" name="accounttype">
-                                        <option selected="disabled">Select Account Type</option>
-                                        @foreach ($banks as $bank)
-                                        <option value="{{$bank->id}}">
-                                            {{$bank->name}}
-                                        </option>
-                                        @endforeach
-    
-                                    </select>
+                                <label for="">Account Type <b style="color: red;">*</b></label>
+                                <select class="form-control" name="accounttype">
+                                    <option selected="disabled">Select Account Type</option>
+                                    <option>Current</option>
+                                    <option>Savings</option>
+                                </select>
                             </div>
 
-                            
+
                             <div class="form-group">
                                 <label for="">Bank <b style="color: red;">*</b></label>
                                 <select class="form-control" name="bank_id">
