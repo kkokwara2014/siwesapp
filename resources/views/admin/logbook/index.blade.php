@@ -9,7 +9,7 @@
     <!-- Left col -->
     <section class="col-lg-11 connectedSortable">
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default">
-            <span class="fa fa-plus"></span> Add IT Company
+            <span class="fa fa-plus"></span> Add IT Logbook
         </button>
         <br><br>
 
@@ -22,36 +22,34 @@
                         <table id="example1" class="table table-bordered table-striped table-responsive">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Address</th>
-                                    
-                                    <th>Phone</th>
-                                    <th>Location</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                        <th>Name</th>
+                                        <th>Filename</th>
+                                        <th>Submitted By</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($itcompanies as $itcompany)
+                                @foreach ($itlogbooks as $logbook)
                                 <tr>
-                                    <td>{{$itcompany->name}}</td>
-                                    <td>{{$itcompany->address}}</td>
-                                    <td>{{$itcompany->phone}}</td>
-                                    <td>{{$itcompany->location->name}}</td>
+                                    <td>{{$logbook->name}}</td>
+                                    <td>{{$logbook->address}}</td>
+                                    <td>{{$logbook->phone}}</td>
+                                    <td>{{$logbook->location->name}}</td>
 
-                                    <td><a href="{{ route('itcompany.edit',$itcompany->id) }}"><span
+                                    <td><a href="{{ route('logbook.edit',$logbook->id) }}"><span
                                                 class="fa fa-edit fa-2x text-primary"></span></a></td>
                                     <td>
-                                        <form id="delete-form-{{$itcompany->id}}" style="display: none"
-                                            action="{{ route('itcompany.destroy',$itcompany->id) }}" method="post">
+                                        <form id="delete-form-{{$logbook->id}}" style="display: none"
+                                            action="{{ route('logbook.destroy',$logbook->id) }}" method="post">
                                             {{ csrf_field() }}
                                             {{method_field('DELETE')}}
                                         </form>
                                         <a href="" onclick="
                                                             if (confirm('Are you sure you want to delete this?')) {
                                                                 event.preventDefault();
-                                                            document.getElementById('delete-form-{{$itcompany->id}}').submit();
+                                                            document.getElementById('delete-form-{{$logbook->id}}').submit();
                                                             } else {
                                                                 event.preventDefault();
                                                             }
@@ -65,10 +63,8 @@
                             <tfoot>
                                 <tr>
                                     <th>Name</th>
-                                    <th>Address</th>
-                                    
-                                    <th>Phone</th>
-                                    <th>Location</th>
+                                    <th>Filename</th>
+                                    <th>Submitted By</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -86,45 +82,26 @@
         <div class="modal fade" id="modal-default">
             <div class="modal-dialog">
 
-                <form action="{{ route('itcompany.store') }}" method="post">
+                <form action="{{ route('logbook.store') }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title"><span class="fa fa-building-o"></span> Add IT Company</h4>
+                            <h4 class="modal-title"><span class="fa fa-book"></span> Add IT Logbook</h4>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="">Name <b style="color: red;">*</b> </label>
-                                <input type="text" class="form-control" name="name" placeholder="Company Name"
+                                <label for="">Title <b style="color: red;">*</b> </label>
+                                <input type="text" class="form-control" name="title" placeholder="Logbook Title"
                                     autofocus>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Address <b style="color: red;">*</b> </label>
-                                <input type="text" class="form-control" name="address" placeholder="Company Address"
-                                    autofocus>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="">Phone</label>
-                                <input type="text" class="form-control" name="phone" placeholder="Company Phone"
-                                    autofocus>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Location <b style="color: red;">*</b></label>
-                                <select class="form-control" name="location_id">
-                                    <option selected="disabled">Select Location</option>
-                                    @foreach ($locations as $location)
-                                    <option value="{{$location->id}}">
-                                        {{$location->name}}
-                                    </option>
-                                    @endforeach
-
-                                </select>
                             </div>
 
-                        <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+
+
+                            <input type="file" name="filename">
+
+                            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
 
                         </div>
                         <div class="modal-footer">

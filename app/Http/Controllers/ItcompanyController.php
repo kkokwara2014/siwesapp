@@ -73,8 +73,9 @@ class ItcompanyController extends Controller
      */
     public function edit($id)
     {
+        $locations = Location::orderBy('name', 'asc')->get();
         $itcompanies = Itcompany::where('id', $id)->first();;
-        return view('admin.department.edit', array('user' => Auth::user()), compact('itcompanies'));
+        return view('admin.itcompany.edit', array('user' => Auth::user()), compact('itcompanies','locations'));
     }
 
     /**
@@ -87,7 +88,7 @@ class ItcompanyController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'require',
+            'name' => 'required',
             'address' => 'required',
             'address' => 'required',
             'location_id' => 'required',

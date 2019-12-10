@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Logbook;
 use Illuminate\Http\Request;
+use Auth;
 
 class LogbookController extends Controller
 {
@@ -13,7 +15,11 @@ class LogbookController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        
+        $itlogbooks = Logbook::orderBy('created_at', 'desc')->get();
+
+        return view('admin.logbook.index', compact('user', 'itlogbooks'));
     }
 
     /**
@@ -34,7 +40,26 @@ class LogbookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'filename' => 'required|file|max:5000|mimes:docx,doc,pdf',
+        ]);
+
+
+        if ($request->hasFile('filename')) {
+            $filenameWithTime = time() . '_' . $request->filename->getClientOriginalName();
+            $filenameToStore = $request->filename->storeAs('public/it_logbooks', $filenameWithTime);
+        }
+
+        //    create an instance of Logbook
+        $logbook = new Logbook;
+        $logbook->title = $request->title;
+        $logbook->filename = $filenameToStore;
+
+        $logbook->save();
+
+        
+        return redirect()->route('logbook.index');
     }
 
     /**
@@ -56,7 +81,9 @@ class LogbookController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $itlogbooks = Logbook::where('id', $id)->first();;
+        return view('admin.itcompany.edit', array('user' => Auth::user()), compact('itlogbooks'));
     }
 
     /**
@@ -79,6 +106,7 @@ class LogbookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $itlogbooks = Logbook::where('id', $id)->delete();
+        return redirect()->back();
     }
 }
