@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Location;
 use Illuminate\Http\Request;
+
+use Auth;
 
 class ItcompanyController extends Controller
 {
@@ -13,7 +16,10 @@ class ItcompanyController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $locations = Location::orderBy('name', 'asc')->get();
+
+        return view('admin.itcompany.index', compact('user', 'locations'));
     }
 
     /**
