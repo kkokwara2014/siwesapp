@@ -72,7 +72,7 @@
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h3>Place of IT</h3>
+                                    <h3>Place of IT Attachment</h3>
                                     <hr>
                                     <ul class="list-group">
                                         @forelse ($senttos as $sentto)

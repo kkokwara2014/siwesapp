@@ -61,7 +61,8 @@
       <li><a href="{{route('supervisor.index')}}"><i class="fa fa-user"></i> Supervisor</a></li>
       {{-- @endif --}}
       
-      <li><a href="{{route('placement.index')}}"><i class="fa fa-exchange"></i> IT Placement</a></li>
+      <li><a href="{{route('placement.index')}}"><i class="fa fa-exchange"></i> Student Placement</a></li>
+      <li><a href="{{route('allocate.index')}}"><i class="fa fa-exchange"></i> Allocate Supervisor</a></li>
 
       {{-- Only for Admin --}}
       {{-- @if (Auth::user()->role->id==1) --}}
